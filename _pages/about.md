@@ -5,5 +5,4 @@ I am very fortunate to be advised by [Prof. Siwei Ma](https://cs.pku.edu.cn/info
 You can find my CV here: [Jiaye's Curriculum Vitae](../assets/Curriculum_Vitae.pdf).
 
 [Email](mailto:jyfu@stu.pku.edu.cn) / [Github](https://github.com/jyfu-vcl)
-————————————————
 
