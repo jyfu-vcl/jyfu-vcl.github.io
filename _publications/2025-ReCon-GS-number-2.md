@@ -5,7 +5,7 @@ category: conferences
 permalink: /publication/2025-ReCon-GS-number-2
 excerpt: 'This paper introduces ReCon-GS, a 4D streaming reconstruction pipeline based on 3DGS.'
 date: 2025-12-01
-venue: 'Conference 2'
+venue: 'Proceedings of the Advances in Neural Information Processing Systems (NeurIPS)'
 slidesurl: 'https://academicpages.github.io/files/slides1.pdf'
 paperurl: 'https://academicpages.github.io/files/paper1.pdf'
 bibtexurl: 'https://academicpages.github.io/files/bibtex1.bib'

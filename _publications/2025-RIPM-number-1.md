@@ -5,7 +5,7 @@ category: conferences
 permalink: /publication/2025-RIPM-number-1
 excerpt: 'This paper introduces Recurrent Intra Prediction Mode to Next-Gen Video Coding Software (ECM).'
 date: 2025-03-16
-venue: 'Conference 1'
+venue: 'Proceedings of the IEEE Data Compression Conference (DCC)'
 slidesurl: 'https://academicpages.github.io/files/slides1.pdf'
 paperurl: 'https://academicpages.github.io/files/paper1.pdf'
 bibtexurl: 'https://academicpages.github.io/files/bibtex1.bib'

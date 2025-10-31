@@ -5,7 +5,7 @@ category: conferences
 permalink: /publication/2025-E-TIMD-number-3
 excerpt: 'This paper introduces Enhanced Template-based Intra Mode Derivation to Next-Gen Video Coding Software (ECM).'
 date: 2025-12-01
-venue: 'Conference 3'
+venue: 'Proceedings of the IEEE Picture Coding Symposium (PCS)'
 slidesurl: 'https://academicpages.github.io/files/slides1.pdf'
 paperurl: 'https://academicpages.github.io/files/paper1.pdf'
 bibtexurl: 'https://academicpages.github.io/files/bibtex1.bib'
