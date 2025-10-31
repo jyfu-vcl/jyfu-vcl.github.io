@@ -172,30 +172,6 @@
     </ul>
   </div>
   {% endif %}
-  
-  {% if cv.standardization and cv.standardization.size > 0 %}
-  <!-- STANDARDIZATION CONTRIBUTIONS -->
-  <div class="cv-section">
-    <h2>Standardization Contributions</h2>
-    <ul class="cv-list">
-      {% for it in cv.standardization %}
-      <li class="cv-item">
-        <div class="cv-item-header">
-          <div class="cv-item-title">{{ it.name }}</div>
-          {% if it.date %}<div class="cv-item-date">{{ it.date | slice: 0, 4 }}</div>{% endif %}
-        </div>
-        <div class="cv-item-content">
-          {% if it.venue %}<div class="cv-item-subtitle">{{ it.venue }}</div>{% endif %}
-          {% if it.note %}<div class="cv-item-detail">{{ it.note }}</div>{% endif %}
-          {% if it.website %}
-            <div class="cv-item-detail"><a href="{{ it.website }}" target="_blank">Link</a></div>
-          {% endif %}
-        </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
 
   {% if cv.presentations.size > 0 %}
   <!-- Presentations/Talks -->
