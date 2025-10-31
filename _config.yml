@@ -23,7 +23,7 @@ repository               : "jyfu-vcl/jyfu-vcl.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "./images/Selfies.jpg"
+  avatar           : "profile.jpg"
   name             : "Jiaye Fu (Ambrose)"
   pronouns         : "He/Him"  
   bio              : "CVer, Video Coding Expert"
@@ -87,6 +87,8 @@ publication_category:
     title: 'Journal Articles'    
   conferences:
     title: 'Conference Papers'
+  proposals:
+    title: 'Technical Proposals'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
