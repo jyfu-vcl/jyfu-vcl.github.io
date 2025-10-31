@@ -12,7 +12,7 @@ redirect_from:
 Education
 ======
 * M.S. in Computer Science and Technology, Peking University, 2027 (expected)
-* B.Eng. in Electronic and Information Engineering, Beijing University of Technology, 2024
+* B.Eng. in Electronic and Information Engineering with Honors, Beijing University of Technology, 2024
   
 Publications
 ======
