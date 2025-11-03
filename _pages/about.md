@@ -20,4 +20,4 @@ My research centers on two closely connected directions.
 
 You can find my CV here: [Jiaye's Curriculum Vitae](../files/CV.pdf).
 
-[Email](mailto:jyfu@stu.pku.edu.cn) / [Github](https://github.com/jyfu-vcl)
+[Email](mailto:jyfu@stu.pku.edu.cn) / [Github](https://github.com/jyfu-vcl) / [Linkedin](https://www.linkedin.com/in/jiaye-fu) / [WeChat](../images/WeChatQRCode.jpg)
