@@ -1,5 +1,5 @@
 ---
-title: "Enhanced Template-based Intra Mode Derivation with Adaptive Block Vector Replacement"
+title: "TinySplat: Feedforward Approach for Generating Compact 3D Scene Representation"
 collection: publications
 category: manuscripts
 permalink: /publication/2025-TinySplat-number-4
