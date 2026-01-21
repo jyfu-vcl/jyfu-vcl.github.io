@@ -5,7 +5,7 @@ category: manuscripts
 permalink: /publication/2025-ProSplat-number-6
 excerpt: 'This paper introduces one-step DiT-based post refining tools for 3D scene reconstruction.'
 date: 2025-12-01
-venue: 'IEEE Transactions on Circuits and Systems for Video Technology (*Under Review*)'
+venue: 'Pattern Recognition (*Under Review*)'
 paperurl: 'https://academicpages.github.io/files/ProSplat2025.pdf'
 citation: 'Lu, X., Fu, J., Zhang, J., Song, Z., Jia, C. and Ma, S., 2025. ProSplat: Improved Feed-Forward 3D Gaussian Splatting for Wide-Baseline Sparse Views. arXiv preprint arXiv:2506.07670.'
 ---
