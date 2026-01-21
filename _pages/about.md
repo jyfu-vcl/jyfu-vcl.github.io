@@ -1,8 +1,8 @@
 ---
 permalink: /
 title: "Jiaye's Personal Portfolio"
-author_profile: true
-redirect_from: 
+layout: home
+redirect_from:
   - /about/
   - /about.html
 ---
