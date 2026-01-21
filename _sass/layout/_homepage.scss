@@ -444,11 +444,11 @@
   }
 
   a {
-    color: #00FFFF;
+    color: var(--global-link-color);
     text-decoration: none;
     position: relative;
     font-weight: 500;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease;
 
     &::after {
       content: '';
@@ -457,18 +457,34 @@
       left: 0;
       width: 0;
       height: 2px;
+      background: var(--global-link-color);
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: var(--global-link-color-hover);
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+/* Dark theme specific enhancements for About section */
+html[data-theme="dark"] .about-content {
+  a {
+    color: #00FFFF;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+
+    &::after {
       background: linear-gradient(90deg, #00FFFF, #FF00FF);
       box-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
-      transition: width 0.3s ease;
     }
 
     &:hover {
       text-shadow: 0 0 15px rgba(0, 255, 255, 0.8),
                    0 0 30px rgba(0, 255, 255, 0.4);
-    }
-
-    &:hover::after {
-      width: 100%;
     }
   }
 }
