@@ -29,21 +29,55 @@
   }
 }
 
-/* Archive Item - Modern Card Style */
+/* Archive Item - Cyberpunk Card Style */
 .archive__item {
   background: var(--global-card-bg);
   border-radius: var(--global-radius-md);
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   box-shadow: var(--global-shadow-sm);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--global-border-color);
   position: relative;
+  overflow: hidden;
+
+  /* Neon top border effect */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #00FFFF 0%, #00D9FF 50%, #FF00FF 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--global-shadow-lg);
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2),
+                0 0 40px rgba(255, 0, 255, 0.1),
+                0 10px 30px rgba(0, 0, 0, 0.3);
     background: var(--global-card-bg-hover);
+    border-color: rgba(0, 255, 255, 0.3);
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* Dark theme specific enhancements */
+html[data-theme="dark"] .archive__item {
+  &:hover {
+    /* Hexagonal grid pattern on hover */
+    background-image:
+      repeating-linear-gradient(60deg, transparent, transparent 20px, rgba(0, 255, 255, 0.02) 20px, rgba(0, 255, 255, 0.02) 21px),
+      repeating-linear-gradient(120deg, transparent, transparent 20px, rgba(0, 255, 255, 0.02) 20px, rgba(0, 255, 255, 0.02) 21px),
+      repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0, 255, 255, 0.02) 20px, rgba(0, 255, 255, 0.02) 21px);
+    background-color: var(--global-card-bg-hover);
   }
 }
 
@@ -70,7 +104,7 @@
     color: var(--global-text-color);
     text-decoration: none;
     position: relative;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 
     &::after {
       content: '';
@@ -79,12 +113,14 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: var(--global-accent-primary);
+      background: linear-gradient(90deg, #00FFFF, #FF00FF);
       transition: width 0.3s ease;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
     }
 
     &:hover {
       color: var(--global-accent-primary);
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 
       &::after {
         width: 100%;
