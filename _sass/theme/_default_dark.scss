@@ -9,10 +9,12 @@ $darker-gray                : #020617;
 $light-gray                 : #CBD5E1;
 $lighter-gray               : #334155;
 
-/* Accent Colors */
-$accent-primary             : #60A5FA;  // Lighter blue for dark mode
-$accent-secondary           : #A78BFA;  // Lighter purple
-$accent-success             : #34D399;  // Lighter emerald
+/* Accent Colors - Cyberpunk Enhanced */
+$accent-primary             : #00D9FF;  // Electric blue
+$accent-secondary           : #FF00FF;  // Neon magenta
+$accent-success             : #00FF41;  // Neon green
+$neon-cyan                  : #00FFFF;  // Neon cyan
+$neon-pink                  : #FF00FF;  // Neon pink
 
 /* Color codes used for the site */
 $danger-color               : #F87171;
@@ -69,6 +71,8 @@ html[data-theme="dark"] {
     --global-accent-primary             : #{$accent-primary};
     --global-accent-secondary           : #{$accent-secondary};
     --global-accent-success             : #{$accent-success};
+    --neon-cyan                         : #{$neon-cyan};
+    --neon-pink                         : #{$neon-pink};
 
     /* Table Colors */
     --global-thead-color                : #1E293B;
