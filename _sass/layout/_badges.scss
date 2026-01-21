@@ -1,0 +1,101 @@
+/* ==========================================================================
+   BADGES - Category & Status Indicators
+   ========================================================================== */
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--global-radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Publication Category Badges */
+.badge--conferences {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3B82F6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+
+  html[data-theme="dark"] & {
+    background: rgba(96, 165, 250, 0.15);
+    color: #60A5FA;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+  }
+}
+
+.badge--manuscripts {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8B5CF6;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+
+  html[data-theme="dark"] & {
+    background: rgba(167, 139, 250, 0.15);
+    color: #A78BFA;
+    border: 1px solid rgba(167, 139, 250, 0.3);
+  }
+}
+
+.badge--proposals {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+
+  html[data-theme="dark"] & {
+    background: rgba(52, 211, 153, 0.15);
+    color: #34D399;
+    border: 1px solid rgba(52, 211, 153, 0.3);
+  }
+}
+
+.badge--journals {
+  background: rgba(245, 158, 11, 0.1);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+
+  html[data-theme="dark"] & {
+    background: rgba(251, 191, 36, 0.15);
+    color: #FBBF24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+  }
+}
+
+.badge--workshops {
+  background: rgba(236, 72, 153, 0.1);
+  color: #EC4899;
+  border: 1px solid rgba(236, 72, 153, 0.2);
+
+  html[data-theme="dark"] & {
+    background: rgba(244, 114, 182, 0.15);
+    color: #F472B6;
+    border: 1px solid rgba(244, 114, 182, 0.3);
+  }
+}
+
+/* Status Badges */
+.badge--published {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.badge--preprint {
+  background: rgba(245, 158, 11, 0.1);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.badge--draft {
+  background: rgba(107, 114, 128, 0.1);
+  color: #6B7280;
+  border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+/* Hover Effect */
+.archive__item:hover .badge {
+  transform: translateY(-2px);
+  box-shadow: var(--global-shadow-sm);
+}
