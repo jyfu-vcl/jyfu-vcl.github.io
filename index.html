@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jiaye Fu — Homepage</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<!-- ============ Sticky top navigation ============ -->
+<nav class="topnav">
+  <span class="nav-name">Jiaye Fu</span>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#publications">Publications</a>
+  <a href="#awards">Awards</a>
+  <a href="#service">Service</a>
+  <a href="#education">Education</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- ============ Header / hero ============ -->
+<section class="hero" id="top">
+  <img src="assets/images/profile.jpg" alt="Jiaye Fu" class="hero-photo">
+  <div class="hero-info">
+    <h1><span class="author-name">Jiaye Fu</span></h1>
+    <p>
+      <b>付迦叶</b> in Chinese &middot; M.Sc. Student (second year)<br>
+      School of Electronic and Computer Engineering<br>
+      <a href="https://www.pku.edu.cn/" target="_blank">Peking University</a>
+    </p>
+    <p class="socials">
+      <a target="_blank" href="https://scholar.google.com/" title="Google Scholar"><img src="assets/images/google_scholar_logo.png" height="26" alt="Scholar"></a>
+      <a target="_blank" href="https://github.com/jyfu-vcl" title="GitHub"><img src="assets/images/github_logo.svg" height="27" alt="GitHub"></a>
+      <a target="_blank" href="mailto:jyfu@stu.pku.edu.cn" title="Email"><img src="assets/images/email_logo.png" height="25" alt="Email"></a>
+      <a target="_blank" href="https://www.linkedin.com/in/jiaye-fu" title="LinkedIn"><img src="assets/images/linkedin_logo.png" height="26" alt="LinkedIn"></a>
+      <a target="_blank" href="files/CV.pdf" title="CV"><img src="assets/images/notes_logo.png" height="26" alt="CV"></a>
+    </p>
+  </div>
+</section>
+
+<!-- ============ About ============ -->
+<section id="about">
+  <h2>About</h2>
+  <p>
+    I am a second-year M.Sc. student at the
+    <a target="_blank" href="https://www.ece.pku.edu.cn/en/About/Welcome_to_SECE.htm">School of Electronic and Computer Engineering</a>,
+    <a target="_blank" href="https://www.pku.edu.cn/">Peking University</a>.
+    I am fortunate to be co-supervised by
+    <a target="_blank" href="https://cs.pku.edu.cn/info/1236/2106.htm">Prof. Siwei Ma</a>
+    (IEEE Fellow) of the <a target="_blank" href="https://idm.pku.edu.cn/en/info/1012/1030.htm">Video Coding Lab</a>
+    and <a target="_blank" href="https://jianzhang.tech/">Prof. Jian Zhang</a> of the
+    <a target="_blank" href="https://villa.jianzhang.tech/">VILLA Lab</a>.
+    I received my B.Eng. in 2024 from
+    <a target="_blank" href="https://english.bjut.edu.cn/">Beijing University of Technology</a>
+    (joint program with <a target="_blank" href="https://www.ucd.ie/">University College Dublin</a>),
+    advised by <a target="_blank" href="https://english.bjut.edu.cn/info/1335/5055.htm">Prof. Jin Wang</a>.
+  </p>
+</section>
+
+<!-- ============ Research ============ -->
+<section id="research">
+  <h2>Research Interests</h2>
+  <ul>
+    <li>
+      <b>Next-Generation Video Coding.</b>
+      Video is arguably the most important information carrier of the 21st&nbsp;century,
+      and coding is the core technology that makes it deployable at industrial scale.
+      I focus on the design of next-generation high-performance video coding frameworks, with
+      contributions to <a target="_blank" href="https://jvet-experts.org/">JVET</a> and
+      <a target="_blank" href="https://www.avs.org.cn/">AVS</a>.
+    </li>
+    <li>
+      <b>3D Reconstruction.</b>
+      As immersive media emerges as a new information medium, high-quality reconstruction
+      becomes a prerequisite for downstream applications.
+      I focus on efficient, high-fidelity 3D reconstruction techniques for real-world scenes.
+    </li>
+    <li>
+      <b>3D AIGC.</b>
+      Driven by the rise of generative models, I also explore efficient and controllable
+      3D generation and editing for immersive content creation.
+    </li>
+  </ul>
+</section>
+
+<!-- ============ Publications (tabbed: Papers / Proposals) ============ -->
+<section id="publications">
+  <h2>Publications</h2>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="papers">Papers</button>
+    <button class="tab-btn"        data-tab="proposals">Standards Proposals</button>
+  </div>
+
+  <!-- =========== Papers panel =========== -->
+  <div class="tab-panel active" id="panel-papers">
+
+    <h3>Conference Papers</h3>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-tag">C5</span>
+        <span class="pub-title">WaveletSR: Blind Super-Resolution for Noisy 3D Gaussian Splatting</span>
+        <span class="pub-authors">
+          Q. Wang, X. Lu, H. Tang, <span class="author-name">J. Fu</span>, et al.
+          <span class="pub-venue">CVPR Workshops (CVPRW)</span>, 2026.
+        </span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-tag">C4</span>
+        <a class="pub-title" target="_blank" href="files/NIPS2025.pdf">ReCon-GS: Continuum-Preserved Gaussian Streaming for Fast and Compact Reconstruction of Dynamic Scenes</a>
+        <span class="pub-links">[<a target="_blank" href="files/NIPS2025.pdf">PDF</a>] [<a target="_blank" href="https://github.com/jyfu-vcl/ReCon-GS/">Code</a>]</span>
+        <span class="pub-authors">
+          <span class="author-name">J. Fu</span>, Q. Gao, C. Wen, Y. Wu, S. Ma, J. Zhang, J. Zhang.
+          <span class="pub-venue">NeurIPS 2025</span>.
+          <span class="badge badge-ccfa">CCF-A</span>
+        </span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-tag">C3</span>
+        <a class="pub-title" target="_blank" href="files/PCS2025.pdf">Enhanced Template-based Intra Mode Derivation with Adaptive Block Vector Replacement</a>
+        <span class="pub-links">[<a target="_blank" href="files/PCS2025.pdf">PDF</a>]</span>
+        <span class="pub-authors">
+          J. Zhang, <span class="author-name">J. Fu</span>, C. Jia, S. Ma, K. Naser, T. Dumas, S. Puri, M. Radosavljevic.
+          <span class="pub-venue">PCS 2025</span>.
+        </span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-tag">C2</span>
+        <a class="pub-title" target="_blank" href="files/ISCAS2025.pdf">Advanced Learning-Based Coding Tools for ECM: Intra Prediction and In-Loop Filtering</a>
+        <span class="pub-links">[<a target="_blank" href="files/ISCAS2025.pdf">PDF</a>]</span>
+        <span class="pub-authors">
+          Y. Zhao, <span class="author-name">J. Fu</span>, Z. Li, Q. Wang, Z. Huang, J. Zhang, C. Jia, S. Ma.
+          <span class="pub-venue">ISCAS 2025</span>.
+          <span class="badge badge-ccfb">CCF-B</span>
+        </span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-tag">C1</span>
+        <a class="pub-title" target="_blank" href="files/DCC2025.pdf">Recurrent Intra Prediction Mode for Future Video Coding</a>
+        <span class="pub-links">[<a target="_blank" href="files/DCC2025.pdf">PDF</a>]</span>
+        <span class="pub-authors">
+          <span class="author-name">J. Fu</span>, X. Meng, S. Ma, J. Zhang, Y. J. Chang, V. Seregin, M. Karczewicz.
+          <span class="pub-venue">DCC 2025</span>, pp. 183&ndash;192.
+          <span class="badge badge-ccfb">CCF-B</span>
+        </span>
+      </li>
+    </ul>
+
+    <h3>Journal Papers</h3>
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-tag">J3</span>
+        <a class="pub-title" target="_blank" href="files/ProSplat2025.pdf">Cross-View-Consistent Feed-Forward 3D Gaussian Splatting for Novel View Synthesis</a>
+        <span class="pub-links">[<a target="_blank" href="files/ProSplat2025.pdf">PDF</a>]</span>
+        <span class="pub-authors">
+          X. Lu, <span class="author-name">J. Fu</span>, J. Zhang, Z. Song, C. Jia, S. Ma.
+          <span class="pub-venue">Pattern Recognition (Elsevier)</span>, 2026.
+        </span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-tag">J2</span>
+        <a class="pub-title" target="_blank" href="files/TinySplat2025.pdf">TinySplat: Feedforward Approach for Generating Compact 3D Scene Representation</a>
+        <span class="pub-links">[<a target="_blank" href="files/TinySplat2025.pdf">PDF</a>]</span>
+        <span class="pub-authors">
+          Z. Song, <span class="author-name">J. Fu</span>, J. Zhang, X. Lu, C. Jia, S. Ma, W. Gao.
+          <span class="pub-venue">IEEE Transactions on Circuits and Systems for Video Technology (TCSVT)</span>, 2026.
+          <span class="badge badge-ccfb">CCF-B</span>
+        </span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-tag">J1</span>
+        <span class="pub-title">Learned Image Compression via Local-to-global Cross-component Prior</span>
+        <span class="pub-authors">
+          W. Duan, <span class="author-name">J. Fu</span>, C. Cui, J. Wu, L. Song, S. Ma, W. Gao.
+          <span class="pub-venue">IEEE Transactions on Multimedia (TMM)</span>, 2026.
+          <span class="badge badge-ccfa">CCF-A</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- =========== Standards Proposals panel =========== -->
+  <div class="tab-panel" id="panel-proposals">
+    <p style="color:#666; font-size:0.9em;">
+      50+ proposals contributed to
+      <a target="_blank" href="https://jvet-experts.org/">JVET</a> (H.266/VVC successor, ECM) and
+      <a target="_blank" href="https://www.avs.org.cn/">AVS</a>.
+      Selected below; <span class="badge badge-adopt">Adopted</span> marks those integrated into reference software.
+    </p>
+
+    <h3>2025</h3>
+    <ul class="prop-list">
+      <li class="prop-item">
+        <a target="_blank" href="https://www.avs.org.cn/" class="prop-id">AVS-M9322</a>
+        <span class="prop-title">A RL-based Post-processing Tool for Video Coding</span>
+        <span class="prop-meta">— Macau, Dec 2025</span>
+        <span class="badge badge-adopt">Adopted</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AM0074</a>
+        <span class="prop-title">EE2-1.6: Intra Merge Mode</span>
+        <span class="prop-meta">— Daejeon, Jun 2025</span>
+        <span class="badge badge-adopt">Adopted</span>
+        <span class="badge badge-first">First author</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AM0138</a>
+        <span class="prop-title">EE2-1.2: TIMD-BV extension with enhanced IntraTMP merge list</span>
+        <span class="prop-meta">— Daejeon, Jun 2025</span>
+        <span class="badge badge-adopt">Adopted</span>
+        <span class="badge badge-first">First author</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AL0290</a>
+        <span class="prop-title">Enhanced TIMD with NNIP and Optimized Block Vector Derivation</span>
+        <span class="prop-meta">— Teleconf, Mar 2025</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AL0195</a>
+        <span class="prop-title">Non-EE2: TIMD-BV extension with enhanced IntraTMP merge list</span>
+        <span class="prop-meta">— Teleconf, Mar 2025</span>
+        <span class="badge badge-first">First author</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://www.avs.org.cn/" class="prop-id">AVS-M8806</a>
+        <span class="prop-title">QP-adaptive In-Loop Filter tool</span>
+        <span class="prop-meta">— Changsha, Mar 2025</span>
+        <span class="badge badge-adopt">Adopted</span>
+      </li>
+    </ul>
+
+    <h3>2024</h3>
+    <ul class="prop-list">
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AJ0061</a>
+        <span class="prop-title">EE2-2.5: TIMD merge mode</span>
+        <span class="prop-meta">— Kemer, Nov 2024</span>
+        <span class="badge badge-adopt">Adopted</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AJ0269</a>
+        <span class="prop-title">Non-EE2: OBIC extension with PDP and advanced sampling strategy</span>
+        <span class="prop-meta">— Kemer, Nov 2024</span>
+        <span class="badge badge-first">First author</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AJ0149</a>
+        <span class="prop-title">EE2-2.2: Intra merge mode extension with BV development</span>
+        <span class="prop-meta">— Kemer, Nov 2024</span>
+        <span class="badge badge-first">First author</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://www.avs.org.cn/" class="prop-id">AVS-M8473</a>
+        <span class="prop-title">Neural network-based inter prediction filter</span>
+        <span class="prop-meta">— Weihai, Aug 2024</span>
+        <span class="badge badge-adopt">Adopted</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AI0224</a>
+        <span class="prop-title">EE2-related: Intra merge mode extension with BV improvement</span>
+        <span class="prop-meta">— Sapporo, Jul 2024</span>
+        <span class="badge badge-first">First author</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AI0104</a>
+        <span class="prop-title">EE2-2.2: TIMD with enhanced block vectors deployment</span>
+        <span class="prop-meta">— Sapporo, Jul 2024</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AI0079</a>
+        <span class="prop-title">Non-EE2: Improved OBIC with PDP</span>
+        <span class="prop-meta">— Sapporo, Jul 2024</span>
+        <span class="badge badge-first">First author</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://www.avs.org.cn/" class="prop-id">AVS-M8360</a>
+        <span class="prop-title">Report of 400 and lossless video coding in AVS3</span>
+        <span class="prop-meta">— Shaoxing, Jun 2024</span>
+        <span class="badge badge-adopt">Adopted</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://www.avs.org.cn/" class="prop-id">AVS-M8359</a>
+        <span class="prop-title">EE1-2: DMVR &amp; BIO based motion vector refreshment</span>
+        <span class="prop-meta">— Shaoxing, Jun 2024</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AH0071</a>
+        <span class="prop-title">EE2-related: IntraTMP extension to TIMD</span>
+        <span class="prop-meta">— Rennes, Apr 2024</span>
+        <span class="badge badge-first">First author</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://www.avs.org.cn/" class="prop-id">AVS-M8231</a>
+        <span class="prop-title">DMVR &amp; BIO based motion vector refreshment</span>
+        <span class="prop-meta">— Shenzhen, Mar 2024</span>
+      </li>
+    </ul>
+
+    <h3>2023</h3>
+    <ul class="prop-list">
+      <li class="prop-item">
+        <a target="_blank" href="https://www.avs.org.cn/" class="prop-id">AVS-M8064</a>
+        <span class="prop-title">Region-based Intra Template Matching Prediction</span>
+        <span class="prop-meta">— Chengdu, Dec 2023</span>
+        <span class="badge badge-first">First author</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://www.avs.org.cn/" class="prop-id">AVS-M8033</a>
+        <span class="prop-title">Report of 400 and lossless video coding in AVS3</span>
+        <span class="prop-meta">— Chengdu, Dec 2023</span>
+        <span class="badge badge-adopt">Adopted</span>
+      </li>
+      <li class="prop-item">
+        <a target="_blank" href="https://jvet-experts.org/" class="prop-id">JVET-AE0120</a>
+        <span class="prop-title">Non-EE2: Intra Angular Prediction Extension</span>
+        <span class="prop-meta">— Geneva, Jul 2023</span>
+        <span class="badge badge-first">First author</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ Awards & Honors ============ -->
+<section id="awards">
+  <h2>Awards &amp; Honors</h2>
+  <ul class="honor-list">
+    <li><span class="honor-year">2026</span> <b>1st Place</b>, NTIRE 3D Content Super-Resolution Challenge (Track 2: Realistic Degradation), CVPRW.</li>
+    <li><span class="honor-year">2025</span> Merit Student, National Engineering Research Center of Visual Technology (NERCVT), Peking University (Only 10).</li>
+    <li><span class="honor-year">2025</span> Merit Student, Peking University (~Top 5%).</li>
+    <li><span class="honor-year">2024</span> Outstanding Undergraduate Thesis, Beijing Municipal (Top 0.37% at Beijing).</li>
+    <li><span class="honor-year">2024</span> Outstanding Graduates of Beijing University of Technology.</li>
+    <li><span class="honor-year">2023</span> Honorable Mention, Mathematical Contest in Modeling (MCM).</li>
+    <li><span class="honor-year">2021–23</span> Academic Excellence Award of Beijing University of Technology (three consecutive years).</li>
+  </ul>
+</section>
+
+<!-- ============ Academic Service ============ -->
+<section id="service">
+  <h2>Academic Service</h2>
+  <div class="service-grid">
+    <div>
+      <h3>Reviewer</h3>
+      <ul>
+        <li>ACM International Conference on Multimedia (ACM MM)</li>
+        <li>International Conference on Machine Learning (ICML)</li>
+        <li>IEEE Transactions on Multimedia (T-MM)</li>
+        <li>Visual Intelligence (VI)</li>
+        <li>Journal of Visual Communication and Image Representation (J-VCIR)</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Standardization</h3>
+      <ul>
+        <li>
+          Maintainer of <a target="_blank" href="https://www.avs.org.cn/">AVS</a>
+          ModAI reference software.
+        </li>
+        <li>
+          Active contributor to <a target="_blank" href="https://jvet-experts.org/">JVET</a>
+          (H.266/VVC successor, ECM) and
+          <a target="_blank" href="https://www.avs.org.cn/">AVS</a> standards.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Education ============ -->
+<section id="education">
+  <h2>Education</h2>
+  <ul class="edu-list">
+    <li class="edu-item">
+      <div class="edu-main">
+        <b>Peking University</b> &middot; M.Sc., School of Electronic and Computer Engineering<br>
+        Advisors: Prof. Siwei Ma (IEEE Fellow) &amp; Prof. Jian Zhang
+      </div>
+      <div class="edu-date">Sep. 2024 – Present</div>
+    </li>
+    <li class="edu-item">
+      <div class="edu-main">
+        <b>Beijing University of Technology</b> &middot; B.Eng. in Electronic and Information Engineering (with honors)<br>
+        Advisor: Prof. Jin Wang
+      </div>
+      <div class="edu-date">Sep. 2020 – Jul. 2024</div>
+    </li>
+    <li class="edu-item">
+      <div class="edu-main">
+        <b>University College Dublin</b> &middot; B.Eng. in Electronic and Information Engineering (joint programme)<br>
+      </div>
+      <div class="edu-date">Sep. 2020 – Jul. 2024</div>
+    </li>
+  </ul>
+</section>
+
+<!-- ============ Contact ============ -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>
+    Email: <a href="mailto:jyfu@stu.pku.edu.cn">jyfu@stu.pku.edu.cn</a><br>
+    GitHub: <a target="_blank" href="https://github.com/jyfu-vcl">@jyfu-vcl</a><br>
+    LinkedIn: <a target="_blank" href="https://www.linkedin.com/in/jiaye-fu">jiaye-fu</a><br>
+    WeChat: <a target="_blank" href="assets/images/WeChatQRCode.jpg">QR Code</a>
+  </p>
+</section>
+
+<!-- ============ Footer ============ -->
+<div class="footer">
+  &copy; <span class="author-name">Jiaye Fu</span> &nbsp;|&nbsp; Last updated: Apr. 2026
+  <br>
+  <span style="font-size: 0.9em; color: #a8a8a8;">Crafted with <a target="_blank" href="https://claude.ai/" style="color:#a8a8a8;">Claude</a> &#9829;</span>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

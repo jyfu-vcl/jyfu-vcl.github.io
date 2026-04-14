@@ -1,0 +1,318 @@
+/* =========================================================
+   Jiaye Fu — simple academic homepage
+   Single-page layout with lightweight card interactivity
+   ========================================================= */
+
+* { box-sizing: border-box; }
+
+html { background-color: #f3f4f6; scroll-behavior: smooth; }
+
+body {
+    font-family: Georgia, "Source Serif Pro", serif;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 40px 60px;
+    line-height: 1.5;
+    box-shadow: 0 0 40px rgba(0,0,0,0.05);
+}
+
+img { max-width: 100%; border: none; }
+
+a { color: #527bbd; text-decoration: none; transition: color 0.2s; }
+a:hover { color: #cc4f7a; text-decoration: underline; }
+
+h1, h2, h3 {
+    color: #2a3f6b;
+    margin: 1em 0 0.3em;
+    padding: 0.3em 0 0.2em;
+    line-height: 1.1;
+}
+h2 {
+    font-size: 1.35em;
+    border-bottom: 2px solid #527bbd;
+    padding-bottom: 0.3em;
+    margin-top: 1.8em;
+}
+h3 { font-size: 1.08em; color: #3a5ba0; margin-top: 1.2em; }
+h1 { font-size: 2em; margin-bottom: 0.1em; }
+
+p  { margin: 0 0 0.7em 0; }
+ul { padding-left: 1.2em; list-style-type: square; }
+li { margin-bottom: 0.4em; }
+
+.author-name { color: #cc4f7a; font-weight: bold; }
+
+section { scroll-margin-top: 70px; }
+
+/* ---------- Sticky top navigation ---------- */
+.topnav {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e0e4ea;
+    z-index: 100;
+    margin: 0 -40px 20px;
+    padding: 10px 40px;
+    display: flex;
+    gap: 20px;
+    font-size: 0.95em;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.topnav a {
+    color: #2a3f6b;
+    font-weight: 500;
+    padding: 4px 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+}
+.topnav a:hover,
+.topnav a.active {
+    color: #cc4f7a;
+    border-bottom-color: #cc4f7a;
+    text-decoration: none;
+}
+.topnav .nav-name { font-weight: bold; margin-right: auto; color: #cc4f7a; }
+
+/* ---------- Header / hero ---------- */
+.hero {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    padding-top: 1.2em;
+}
+.hero-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+}
+.hero-photo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(204,79,122,0.25);
+}
+.hero-info h1 { margin-top: 0; }
+.hero-info p { margin-bottom: 0.5em; }
+
+.socials a {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.socials a:hover {
+    background-color: #f4e4ec;
+    transform: translateY(-2px);
+}
+.socials img { vertical-align: middle; display: block; }
+
+/* ---------- Tabs (Papers / Proposals) ---------- */
+.tab-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #e0e4ea;
+    margin: 0.5em 0 1.2em;
+}
+.tab-btn {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 1em;
+    color: #3a5ba0;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+.tab-btn:hover { background-color: #f4e4ec; color: #cc4f7a; }
+.tab-btn.active {
+    color: #cc4f7a;
+    border-bottom-color: #cc4f7a;
+    font-weight: bold;
+}
+.tab-panel { display: none; animation: fadein 0.3s ease; }
+.tab-panel.active { display: block; }
+
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(4px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Publication cards ---------- */
+.pub-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+    margin: 0 0 1.2em;
+}
+.pub-item {
+    padding: 14px 18px;
+    border: 1px solid #e0e4ea;
+    border-left: 4px solid #d9dee6;
+    background-color: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s,
+                transform 0.2s, box-shadow 0.2s;
+}
+.pub-item:hover {
+    border-color: #f0c7d4;
+    border-left-color: #cc4f7a;
+    background-color: #fef7fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(204,79,122,0.12);
+}
+.pub-item.active {
+    border-color: #cc4f7a;
+    border-left-color: #cc4f7a;
+    background-color: #fef2f6;
+    box-shadow: 0 6px 20px rgba(204,79,122,0.22);
+    transform: translateY(-2px);
+}
+.pub-item .pub-tag {
+    display: inline-block;
+    background: #e8edf5;
+    color: #2a3f6b;
+    font-size: 0.78em;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 8px;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s, color 0.2s;
+}
+.pub-item:hover .pub-tag,
+.pub-item.active .pub-tag { background: #fce0ea; color: #cc4f7a; }
+.pub-title {
+    font-weight: bold;
+    color: #2a3f6b;
+    transition: color 0.2s;
+}
+.pub-title:hover { color: #cc4f7a; text-decoration: underline; }
+.pub-item.active .pub-title { color: #cc4f7a; }
+.pub-authors { display: block; margin-top: 4px; font-size: 0.95em; }
+.pub-venue { font-style: italic; color: #555; }
+.pub-links { margin-left: 6px; font-size: 0.9em; }
+.pub-links a { margin-right: 4px; }
+
+/* Status badges for publications & proposals */
+.badge {
+    display: inline-block;
+    font-size: 0.72em;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 6px;
+    letter-spacing: 0.3px;
+    vertical-align: middle;
+}
+.badge-adopt   { background: #d9f2e4; color: #1f7a3d; }
+.badge-review  { background: #fff0d6; color: #a15a00; }
+.badge-revise  { background: #f2e4d9; color: #8a4a1a; }
+.badge-first   { background: #fce0ea; color: #cc4f7a; }
+.badge-ccfa    { background: #e8e0ff; color: #4a2f9e; }
+.badge-ccfb    { background: #e0ecff; color: #1f4a8a; }
+
+/* ---------- Standards proposals: compact list ---------- */
+.prop-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.2em;
+    display: grid;
+    gap: 6px;
+}
+.prop-item {
+    padding: 8px 14px;
+    border-left: 3px solid #d9dee6;
+    background: #fbfbfd;
+    border-radius: 4px;
+    font-size: 0.93em;
+    transition: border-left-color 0.2s, background-color 0.2s, transform 0.2s;
+}
+.prop-item:hover {
+    border-left-color: #cc4f7a;
+    background-color: #fef7fa;
+    transform: translateX(3px);
+}
+.prop-id {
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 0.88em;
+    font-weight: bold;
+    color: #2a3f6b;
+    margin-right: 8px;
+    padding: 1px 6px;
+    background: #e8edf5;
+    border-radius: 3px;
+}
+.prop-item:hover .prop-id { background: #fce0ea; color: #cc4f7a; }
+.prop-title { color: #1a1a1a; }
+.prop-meta  { color: #888; font-size: 0.88em; margin-left: 6px; }
+
+/* ---------- Education / honors / service list ---------- */
+.edu-list { list-style: none; padding: 0; }
+.edu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 8px;
+    border-bottom: 1px dashed #e0e4ea;
+    transition: background-color 0.2s, padding-left 0.2s;
+}
+.edu-item:hover { background-color: #fef7fa; padding-left: 14px; }
+.edu-item:last-child { border-bottom: none; }
+.edu-main b { color: #2a3f6b; }
+.edu-date { color: #888; font-size: 0.9em; white-space: nowrap; margin-left: 12px; }
+
+.honor-list { list-style: none; padding: 0; display: grid; gap: 6px; }
+.honor-list li {
+    padding: 8px 12px;
+    border-left: 3px solid #d9dee6;
+    background: #fbfbfd;
+    border-radius: 4px;
+    transition: border-left-color 0.2s, background-color 0.2s, transform 0.2s;
+    font-size: 0.95em;
+}
+.honor-list li:hover {
+    border-left-color: #cc4f7a;
+    background-color: #fef7fa;
+    transform: translateX(3px);
+}
+.honor-year { color: #888; font-size: 0.88em; margin-right: 8px; }
+
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 0.5em;
+}
+.service-grid h3 { margin-top: 0; }
+@media (max-width: 700px) { .service-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Footer ---------- */
+.footer {
+    text-align: center;
+    font-size: 0.88em;
+    color: #808080;
+    border-top: 1px solid #e0e4ea;
+    margin-top: 3em;
+    padding-top: 0.8em;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+    body { padding: 0 20px 40px; }
+    .topnav { margin: 0 -20px 16px; padding: 10px 20px; gap: 14px; }
+    .hero { flex-direction: column; align-items: center; text-align: center; }
+    .hero-info { text-align: left; width: 100%; }
+    .edu-item { flex-direction: column; }
+    .edu-date { margin-left: 0; }
+}
