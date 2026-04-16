@@ -327,6 +327,19 @@ section { scroll-margin-top: 70px; }
     transform-origin: top left;
     pointer-events: none;
 }
+/* Enlarge widget text (visitors count / date labels) so it stays
+   readable after the 0.25 scale is applied. Canvas-rendered map
+   content is not affected by font-size. */
+.visitor-map-inner #mapmyvisitors-widget,
+.visitor-map-inner #mapmyvisitors-widget div,
+.visitor-map-inner #mapmyvisitors-widget span,
+.visitor-map-inner .mapmyvisitors-map-container,
+.visitor-map-inner .mapmyvisitors-visitors,
+.visitor-map-inner .mpmvs {
+    font-size: 48px !important;
+    line-height: 1.25 !important;
+    font-weight: 600 !important;
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 700px) {
