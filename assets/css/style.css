@@ -307,6 +307,18 @@ section { scroll-margin-top: 70px; }
     padding-top: 0.8em;
 }
 
+/* ---------- Visitor map (mapmyvisitors) ---------- */
+.visitor-map {
+    margin: 1em auto 0;
+    max-width: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+.visitor-map:hover { opacity: 1; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 700px) {
     body { padding: 0 20px 40px; }
