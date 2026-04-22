@@ -203,7 +203,6 @@ section { scroll-margin-top: 70px; }
 .pub-venue { font-style: italic; color: #555; }
 .pub-links { margin-left: 6px; font-size: 0.9em; }
 .pub-links a { margin-right: 4px; }
-.pub-note { display: block; margin-top: 2px; font-size: 0.85em; color: #888; font-style: italic; }
 
 /* Status badges for publications & proposals */
 .badge {
