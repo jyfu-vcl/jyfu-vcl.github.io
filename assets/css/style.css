@@ -295,6 +295,8 @@ section { scroll-margin-top: 70px; }
     margin-top: 0.5em;
 }
 .service-grid h3 { margin-top: 0; }
+.service-grid h4 { margin: 0.6em 0 0.2em; font-size: 0.95em; color: #555; }
+.service-grid h4 + ul { margin-top: 0; }
 
 /* ---------- Footer ---------- */
 .footer {
