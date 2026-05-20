@@ -1,11 +1,14 @@
-/* ---------- Tab switching (Papers / Proposals) ---------- */
+/* ---------- Tab switching (scope-aware: each .tab-bar controls only its sibling .tab-panels) ---------- */
 function initTabs() {
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const target = btn.dataset.tab;
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
-            document.querySelectorAll('.tab-panel').forEach(p => {
-                p.classList.toggle('active', p.id === 'panel-' + target);
+    document.querySelectorAll('.tab-bar').forEach(bar => {
+        const scope = bar.parentElement;
+        const buttons = Array.from(bar.querySelectorAll('.tab-btn'));
+        const panels = Array.from(scope.querySelectorAll(':scope > .tab-panel'));
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = 'panel-' + btn.dataset.tab;
+                buttons.forEach(b => b.classList.toggle('active', b === btn));
+                panels.forEach(p => p.classList.toggle('active', p.id === target));
             });
         });
     });
