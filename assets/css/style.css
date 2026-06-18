@@ -269,6 +269,13 @@ section { scroll-margin-top: 70px; }
 }
 .edu-item:hover { background-color: #fef7fa; padding-left: 14px; }
 .edu-item:last-child { border-bottom: none; }
+.edu-left { display: flex; align-items: center; gap: 14px; }
+.edu-logo {
+    width: 44px; height: 44px; object-fit: contain; flex-shrink: 0;
+    filter: grayscale(100%); opacity: 0.85;
+    transition: filter 0.25s, opacity 0.25s, transform 0.25s;
+}
+.edu-item:hover .edu-logo { filter: grayscale(0%); opacity: 1; transform: scale(1.06); }
 .edu-main b { color: #2a3f6b; }
 .edu-date { color: #888; font-size: 0.9em; white-space: nowrap; margin-left: 12px; }
 
