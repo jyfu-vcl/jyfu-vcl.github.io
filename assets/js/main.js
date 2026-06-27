@@ -26,6 +26,46 @@ function initCards() {
     });
 }
 
+/* ---------- Theme toggle (light / dark) with persistence ---------- */
+function initTheme() {
+    const root = document.documentElement;
+    const checkbox = document.querySelector('.theme-switch__checkbox');
+    if (!checkbox) return;
+    // The head script already set data-theme; reflect it on the switch (checked = dark).
+    checkbox.checked = root.getAttribute('data-theme') === 'dark';
+    checkbox.addEventListener('change', () => {
+        const theme = checkbox.checked ? 'dark' : 'light';
+        root.setAttribute('data-theme', theme);
+        try { localStorage.setItem('theme', theme); } catch (e) {}
+    });
+    // Follow OS changes only while the user hasn't made an explicit choice.
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    mq.addEventListener('change', (e) => {
+        let stored;
+        try { stored = localStorage.getItem('theme'); } catch (err) {}
+        if (stored === 'light' || stored === 'dark') return;
+        const theme = e.matches ? 'dark' : 'light';
+        root.setAttribute('data-theme', theme);
+        checkbox.checked = e.matches;
+    });
+}
+
+/* ---------- Matrix katakana backdrop (hero, dark mode only) ---------- */
+function initMatrix() {
+    const host = document.querySelector('.hero-matrix');
+    if (!host || host.querySelector('.jp-matrix')) return;
+    const glyphs = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンガギグゲゴザジズゼゾダヂヅデドバビブベボパピプペポ';
+    const grid = document.createElement('div');
+    grid.className = 'jp-matrix';
+    const COUNT = 320; // overflow:hidden clips the surplus to the hero box
+    let html = '';
+    for (let i = 0; i < COUNT; i++) {
+        html += '<span>' + glyphs.charAt(Math.floor(Math.random() * glyphs.length)) + '</span>';
+    }
+    grid.innerHTML = html;
+    host.appendChild(grid);
+}
+
 /* ---------- Scroll-spy: highlight current section in the nav ---------- */
 function initScrollSpy() {
     const navLinks = Array.from(document.querySelectorAll('.topnav a[href^="#"]'));
@@ -48,5 +88,7 @@ function initScrollSpy() {
 document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initCards();
+    initTheme();
+    initMatrix();
     initScrollSpy();
 });
