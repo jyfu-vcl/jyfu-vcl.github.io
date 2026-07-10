@@ -108,6 +108,19 @@ li { margin-bottom: 0.4em; }
 
 section { scroll-margin-top: 70px; }
 
+/* ---------- Ph.D. application notice ---------- */
+.phd-notice {
+    margin-top: 1em;
+    padding: 10px 14px;
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    background: var(--soft-bg);
+    transition: background-color 0.2s, transform 0.2s;
+}
+.phd-notice:hover { background: var(--hover-bg); transform: translateX(3px); }
+.phd-notice b { color: var(--heading); }
+.phd-notice a { font-weight: bold; }
+
 /* ---------- Sticky top navigation ---------- */
 .topnav {
     position: sticky;
