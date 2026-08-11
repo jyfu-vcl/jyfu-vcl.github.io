@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="CodecArena is a source-conditioned vision-language framework for codec quality assessment, trained with Facet-GRPO."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href="https://jyfu-vcl.github.io/codecarena" />
+    <link rel="icon" type="image/png" href="assets/codecarena-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260811-2" />
+    <title>CodecArena: Codec Quality Assessment via Visual Reinforcement Learning</title>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="wordmark" href="#overview" aria-label="CodecArena home">
+          <span class="wordmark-icon" aria-hidden="true">
+            <img src="assets/codecarena-logo.png" alt="" />
+          </span>
+          <span>CodecArena</span>
+        </a>
+        <button
+          class="menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a class="is-active" href="#overview" aria-current="page">Overview</a>
+          <a href="#problem">Problem</a>
+          <a href="#method">Method</a>
+          <a href="#results">Results</a>
+          <a href="#resources">Resources</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero page-shell" id="overview">
+        <p class="project-label">Source-conditioned visual quality assessment</p>
+        <h1>
+          <span>CodecArena: Codec Quality Assessment</span>
+          <span>via Visual Reinforcement Learning</span>
+        </h1>
+
+        <div class="authors" aria-label="Authors">
+          <span>Jiaye Fu<sup>1,2,*</sup></span>
+          <span>Weiqi Li<sup>1,3,*</sup></span>
+          <span>Qiankun Gao<sup>1</sup></span>
+          <span>Yanchen Zhao<sup>2</sup></span>
+          <span>Xiandong Meng<sup>3</sup></span>
+          <span>Jian Zhang<sup>1</sup></span>
+          <span>Siwei Ma<sup>2</sup></span>
+          <span>Jiaqi Zhang<sup>2,†</sup></span>
+        </div>
+        <p class="affiliations">
+          <span><sup>1</sup> School of Electronic and Computer Engineering, Peking University</span>
+          <span><sup>2</sup> School of Computer Science, Peking University</span>
+          <span><sup>3</sup> Pengcheng Laboratory</span>
+        </p>
+        <p class="author-note"><sup>*</sup> Equal contribution &nbsp; <sup>†</sup> Corresponding author</p>
+
+        <div class="resource-buttons" aria-label="Project resources">
+          <a class="resource-button" href="https://arxiv.org/abs/2608.09139">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v5h5M9 12h6M9 16h6"/></svg>
+            Paper
+          </a>
+          <a class="resource-button" href="https://github.com/jyfu-vcl/CodecArena_public">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 9 4 12l4 3M16 9l4 3-4 3M14 6l-4 12"/></svg>
+            Code
+          </a>
+          <a class="resource-button" href="https://jyfu-vcl.github.io/codecarena">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3c4.4 0 8 2 8 4.5S16.4 12 12 12 4 10 4 7.5 7.6 3 12 3Z"/><path d="M4 7.5v4C4 14 7.6 16 12 16s8-2 8-4.5v-4M4 11.5v4C4 18 7.6 20 12 20s8-2 8-4.5v-4"/></svg>
+            Hugging Face
+          </a>
+        </div>
+
+        <figure class="hero-figure pipeline-hero paper-card">
+          <img
+            src="assets/facet-grpo-pipeline.png"
+            alt="Facet-GRPO framework with elastic temporal queries, facet verdicts, rewards, and policy optimization"
+          />
+          <figcaption>
+            <b>CodecArena with Facet-GRPO.</b> An elastic temporal context query presents the reference and two
+            reconstructions from a single still image to a multi-frame clip. The policy emits a structured facet
+            verdict, and preference, facet-anchored, and calibration rewards drive the Facet-GRPO update.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="abstract-section page-shell" aria-labelledby="abstract-title">
+        <h2 id="abstract-title">Abstract</h2>
+        <p>
+          Video coding is advancing into the low and ultra-low bitrate regime, driven by end-to-end codecs that
+          replace the hand-crafted pipeline with jointly optimized neural networks and generative codecs that exploit
+          the priors of video generation models. Yet the dominant metrics, LPIPS and DISTS, measure feature and
+          texture similarity rather than content fidelity: a reconstruction that hallucinates a wrong face or blurs
+          text into convincing strokes can still score well, even when a human rejects it instantly. To address this,
+          we propose <strong>CodecArena</strong>, the first vision-language framework for video coding quality
+          assessment, casting codec evaluation as source-conditioned comparative reasoning between a reference and
+          its reconstructions. We optimize CodecArena with <strong>Facet-GRPO</strong>, a visual reinforcement learning
+          scheme that aligns pairwise codec preferences while grounding the verdict in five fidelity facets:
+          identity, objects, text, texture, and temporal consistency. Its facet-anchored reward uses automatically
+          derived facet directions as weak anchors, rather than human per-facet labels, to prevent any single
+          sub-score from dominating the holistic preference and to yield interpretable fine-grained quality
+          judgments. To support training and evaluation in this underexplored regime, we construct two complementary
+          resources: CodecArena-1K, a fully automatic preference dataset of 1,500 comparison groups built from
+          traditional, neural, and generative codec reconstructions with fused vision-language and objective
+          supervision; and CodecArena-Bench, a human-ranked benchmark with source-disjoint videos for fair
+          out-of-domain evaluation. Extensive experiments demonstrate that CodecArena achieves state-of-the-art
+          agreement with human judgments on source-disjoint content across diverse codecs and bitrates, surpassing
+          perceptual metrics and prior vision-language evaluators.
+        </p>
+      </section>
+
+      <section class="soft-section" id="problem" aria-labelledby="problem-title">
+        <div class="page-shell section-inner">
+          <p class="part-label">Part 1 · The problem</p>
+          <h2 id="problem-title">Sharp is not the same as faithful.</h2>
+          <p class="section-lede">
+            LPIPS and DISTS average feature distances over the whole frame. At low and ultra-low bitrates, that can
+            reward globally realistic detail while missing the identity shift, unreadable text, fabricated texture,
+            or temporal drift that makes a human reject the reconstruction.
+          </p>
+
+          <p class="problem-detail">
+            The bias is self-reinforcing because many generative codecs are trained with LPIPS-style perceptual
+            losses. Evaluating them with the same insensitive signal can reward a reconstruction for exploiting the
+            metric rather than preserving the source. CodecArena instead compares the source with its reconstructions
+            and asks what information remains faithful across five complementary facets.
+          </p>
+
+          <figure class="bad-case-figure paper-card">
+            <div class="bad-case-heading">
+              <p class="mini-label">A matched-rate failure case · ~0.15 bpp</p>
+              <h3>Perceptual similarity rewards the sharper reconstruction—even when its content is wrong.</h3>
+            </div>
+            <img
+              src="assets/bad-case.png"
+              alt="Matched-bitrate comparison where GLC-Video receives better LPIPS and DISTS scores but corrupts face identity and on-screen text, while DCVC-RT preserves both and is preferred by CodecArena"
+            />
+            <figcaption>
+              LPIPS and DISTS rank GLC-Video above DCVC-RT, yet GLC-Video corrupts the face identity (top) and
+              on-screen text (bottom) that DCVC-RT preserves. CodecArena instead prefers DCVC-RT, matching human
+              judgment. ↓ / ↑ indicates whether lower or higher is better.
+            </figcaption>
+          </figure>
+
+          <div class="facet-grid">
+            <article><span>01</span><h3>Identity</h3><p>Does the person remain recognizably the same?</p></article>
+            <article><span>02</span><h3>Objects</h3><p>Are scene entities preserved without invention or loss?</p></article>
+            <article><span>03</span><h3>Text</h3><p>Do captions, signs, and logos stay legible and correct?</p></article>
+            <article><span>04</span><h3>Texture</h3><p>Is fine detail faithful rather than merely convincing?</p></article>
+            <article><span>05</span><h3>Temporal</h3><p>Do identity and structure remain stable across frames?</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="method-section page-shell" id="method" aria-labelledby="method-title">
+        <p class="part-label">Part 2 · Our method</p>
+        <h2 id="method-title">Facet-GRPO: grounded preference learning</h2>
+        <p class="section-lede">
+          Human rankings provide reliable holistic preferences, but they do not determine how a model should score
+          identity, objects, text, texture, and temporal consistency separately. Facet-GRPO closes this gap with
+          automatically derived facet directions, producing fine-grained judgments without human per-facet labels.
+        </p>
+
+        <div class="pipeline-bridge" aria-label="Pipeline stages">
+          <span><b>1</b> Elastic query</span><i aria-hidden="true">→</i>
+          <span><b>2</b> Facet verdict</span><i aria-hidden="true">→</i>
+          <span><b>3</b> Structured rewards</span><i aria-hidden="true">→</i>
+          <span><b>4</b> GRPO update</span>
+        </div>
+
+        <div class="method-rationale">
+          <article>
+            <p class="mini-label">The failure mode</p>
+            <h3>A correct winner can hide the wrong reason.</h3>
+            <p>
+              A holistic preference reward only constrains which side wins. Because the final quality is averaged
+              over facets, the policy can inflate one salient score—often synthesized texture—while a face or caption
+              is corrupted. The ranking may be correct even though the explanation and sub-scores are not.
+            </p>
+          </article>
+          <article>
+            <p class="mini-label">Why group-relative optimization</p>
+            <h3>The training objective matches the comparison task.</h3>
+            <p>
+              GRPO learns from the relative quality of several sampled verdicts for the same query. It removes the
+              explicit critic used by PPO, reducing compute overhead and avoiding instability from a learned value
+              function, while a frozen reference model and KL term keep policy updates controlled.
+            </p>
+          </article>
+        </div>
+
+        <h3 class="method-subtitle">One reward is not enough: each term closes a different loophole</h3>
+        <div class="reward-grid">
+          <article>
+            <span>01</span><h3>Preference</h3>
+            <p>Bradley–Terry latent qualities reward the correct A/B choice in proportion to preference confidence.</p>
+            <small>Constrains the ordering</small>
+          </article>
+          <article>
+            <span>02</span><h3>Calibration</h3>
+            <p>Side-level scores are matched to fused objective quality, so confidence has a meaningful magnitude.</p>
+            <small>Constrains the scale</small>
+          </article>
+          <article class="reward-primary">
+            <span>03</span><h3>Facet anchoring</h3>
+            <p>Every clearly separated facet must follow its automatically derived direction; no one sub-score can carry the comparison.</p>
+            <small>Constrains the decomposition</small>
+          </article>
+          <article>
+            <span>04</span><h3>Reasoning + format</h3>
+            <p>Explicit visual reasoning precedes a parseable verdict, preventing collapse into unsupported score-only outputs.</p>
+            <small>Constrains the evidence</small>
+          </article>
+        </div>
+
+        <div class="elastic-context">
+          <div>
+            <p class="mini-label">Elastic temporal context</p>
+            <h3>One judge, from a still image to a full clip.</h3>
+          </div>
+          <p>
+            Training samples K ∈ {1, 3, 5, 7}. At K=1, the temporal facet is marked not scorable and removed from the
+            anchor set; at K&gt;1, all five facets apply. The same policy therefore handles image and video assessment
+            and is evaluated at K=14 to test temporal extrapolation beyond the training context.
+          </p>
+        </div>
+
+        <div class="facet-proof" aria-label="Facet anchoring hard-case evidence">
+          <div><strong>65.0% → 84.3%</strong><span>Text/Identity direction accuracy on 300 hard cases</span></div>
+          <div><strong>81.0% → 89.0%</strong><span>Overall pairwise accuracy on the same hard cases</span></div>
+          <p>
+            With λ<sub>f</sub>=0.6, facet anchoring improves the decisive face/text judgment as well as the final
+            preference. This directly tests the failure mode that holistic rewards leave under-determined.
+          </p>
+        </div>
+
+        <h3 class="method-subtitle dataset-title">Coding-oriented supervision</h3>
+        <div class="method-support">
+          <div class="dataset-summary" aria-label="Dataset summary">
+            <div><strong>1,500</strong><span>CodecArena-1K groups</span></div>
+            <div><strong>1,050 / 450</strong><span>training / validation groups</span></div>
+            <div><strong>80</strong><span>source-disjoint benchmark videos</span></div>
+            <div><strong>10 + 5</strong><span>experts + non-domain viewers</span></div>
+          </div>
+
+          <div class="reward-note">
+            <p class="mini-label">Fully automatic training labels</p>
+            <p>
+              Kimi-K2.6 and Opus-4.7 pairwise judgments are fused with seven objective signals and a within-codec
+              rate-monotonicity constraint. Human rankings are reserved for CodecArena-Bench evaluation.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-grid">
+          <article><span>1</span><h3>Multi-codec groups</h3><p>Re-encode natural clips with HEVC, VVC, DCVC-DC, DCVC-RT, and GLC-Video across medium-low to ultra-low bitrates.</p></article>
+          <article><span>2</span><h3>Automatic annotation</h3><p>Fuse pairwise VLM judgments with face identity, perceptual, text, no-reference, and temporal quality signals.</p></article>
+          <article><span>3</span><h3>Human-ranked benchmark</h3><p>Aggregate rankings from coding experts and non-domain viewers on source-disjoint content for out-of-domain evaluation.</p></article>
+        </div>
+      </section>
+
+      <section class="results-section soft-section" id="results" aria-labelledby="results-title">
+        <div class="page-shell section-inner">
+          <p class="part-label">Part 3 · Key findings</p>
+          <h2 id="results-title">Closer agreement with human judgment</h2>
+          <p class="section-lede">
+            Both CodecArena variants occupy the top SRCC positions at every temporal granularity and rank first and
+            second in pairwise accuracy. The Qwen3-VL-8B judge remains strong at K=14 despite training only with K≤7.
+          </p>
+
+          <div class="metric-grid" aria-label="Headline K equals 7 results">
+            <article><strong>0.895</strong><span>SRCC · Qwen3-VL-8B · K=7</span></article>
+            <article><strong>0.923</strong><span>PLCC · Qwen3-VL-8B · K=7</span></article>
+            <article><strong>94.9%</strong><span>Pairwise accuracy · K=7</span></article>
+          </div>
+
+          <div class="results-toolbar">
+            <div class="control-group" role="group" aria-label="Evaluation protocol">
+              <span>Protocol</span>
+              <button class="is-selected" type="button" data-protocol="ranking" aria-pressed="true">Ranking</button>
+              <button type="button" data-protocol="pairwise" aria-pressed="false">Pairwise</button>
+            </div>
+            <div class="control-group" role="group" aria-label="Temporal granularity">
+              <span>Frames</span>
+              <button type="button" data-k="1" aria-pressed="false">K=1</button>
+              <button class="is-selected" type="button" data-k="7" aria-pressed="true">K=7</button>
+              <button type="button" data-k="14" aria-pressed="false">K=14</button>
+            </div>
+          </div>
+
+          <p class="table-context" id="table-context" aria-live="polite"></p>
+          <div class="table-wrap" tabindex="0" aria-label="Scrollable performance table">
+            <table>
+              <caption class="visually-hidden">CodecArena-Bench performance</caption>
+              <thead id="results-head"></thead>
+              <tbody id="results-body"></tbody>
+            </table>
+          </div>
+          <p class="table-note" id="table-note"></p>
+
+          <div class="subjective-results" aria-labelledby="subjective-title">
+            <div class="subjective-heading">
+              <div>
+                <p class="mini-label">Pairwise examples</p>
+                <h3 id="subjective-title">More Results</h3>
+              </div>
+              <p>
+                Each Test-2 example shows a reference and a randomly ordered A/B pair. The tables report every score
+                used for the comparison and the reconstruction selected by each evaluator; ↑ / ↓ indicates whether
+                higher or lower is better.
+              </p>
+            </div>
+
+            <div class="subjective-case-list">
+              <article class="subjective-case">
+                <div class="subjective-case-head">
+                  <div><span>Image · K=1</span><h4>Identity fidelity</h4></div>
+                  <strong>Human preference · B</strong>
+                </div>
+                <div class="case-triptych" tabindex="0" aria-label="Scrollable identity comparison">
+                  <figure><img loading="lazy" src="assets/cases/image-case-05/reference__f0.webp" alt="Reference image of a man standing outdoors" /><figcaption>Reference</figcaption></figure>
+                  <figure><img loading="lazy" src="assets/cases/image-case-05/reconstruction-a__f0.webp" alt="Reconstruction A with altered facial identity" /><figcaption>A · human rank 6.6</figcaption></figure>
+                  <figure class="is-preferred"><img loading="lazy" src="assets/cases/image-case-05/reconstruction-b__f0.webp" alt="Preferred reconstruction B preserving the subject identity more faithfully" /><figcaption>B · human rank 3.0 <b>Preferred</b></figcaption></figure>
+                </div>
+                <div class="case-metrics">
+                  <table>
+                    <caption class="visually-hidden">Identity fidelity scores for reconstructions A and B</caption>
+                    <thead><tr><th>Evaluator</th><th>A</th><th>B</th><th>Choice</th></tr></thead>
+                    <tbody>
+                      <tr><th>Human mean rank ↓</th><td>6.6</td><td>3.0</td><td><span class="decision is-aligned">B · aligned</span></td></tr>
+                      <tr class="is-codecarena"><th>CodecArena ↑</th><td>0.20</td><td>0.53</td><td><span class="decision is-aligned">B · aligned</span></td></tr>
+                      <tr><th>LPIPS ↓</th><td>0.2264</td><td>0.3595</td><td><span class="decision is-misaligned">A · not aligned</span></td></tr>
+                      <tr><th>DISTS ↓</th><td>0.1508</td><td>0.2421</td><td><span class="decision is-misaligned">A · not aligned</span></td></tr>
+                      <tr><th>Q-Insight ↑</th><td>3.37</td><td>2.80</td><td><span class="decision is-misaligned">A · not aligned</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>A appears locally detailed but changes the subject's face. LPIPS, DISTS, and Q-Insight favor A; human ranking and CodecArena choose the more identity-faithful B.</p>
+              </article>
+
+              <article class="subjective-case">
+                <div class="subjective-case-head">
+                  <div><span>Video · K=7</span><h4>Text fidelity</h4></div>
+                  <strong>Human preference · A</strong>
+                </div>
+                <div class="case-triptych" tabindex="0" aria-label="Scrollable text comparison">
+                  <figure><img loading="lazy" src="assets/cases/video-case-04/reference__f0.webp" alt="Reference video frame containing a poem in white text" /><figcaption>Reference</figcaption></figure>
+                  <figure class="is-preferred"><img loading="lazy" src="assets/cases/video-case-04/reconstruction-a__f0.webp" alt="Preferred reconstruction A retaining readable poem text" /><figcaption>A · human rank 4.0 <b>Preferred</b></figcaption></figure>
+                  <figure><img loading="lazy" src="assets/cases/video-case-04/reconstruction-b__f0.webp" alt="Reconstruction B corrupting the poem letterforms" /><figcaption>B · human rank 7.1</figcaption></figure>
+                </div>
+                <div class="case-metrics">
+                  <table>
+                    <caption class="visually-hidden">Text fidelity scores for reconstructions A and B</caption>
+                    <thead><tr><th>Evaluator</th><th>A</th><th>B</th><th>Choice</th></tr></thead>
+                    <tbody>
+                      <tr><th>Human mean rank ↓</th><td>4.0</td><td>7.1</td><td><span class="decision is-aligned">A · aligned</span></td></tr>
+                      <tr class="is-codecarena"><th>CodecArena ↑</th><td>0.62</td><td>0.50</td><td><span class="decision is-aligned">A · aligned</span></td></tr>
+                      <tr><th>LPIPS ↓</th><td>0.2867</td><td>0.1318</td><td><span class="decision is-misaligned">B · not aligned</span></td></tr>
+                      <tr><th>DISTS ↓</th><td>0.1778</td><td>0.0991</td><td><span class="decision is-misaligned">B · not aligned</span></td></tr>
+                      <tr><th>VQ-Insight ↑</th><td>66</td><td>68</td><td><span class="decision is-misaligned">B · not aligned</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>B preserves a plausible scene appearance but corrupts the poem into malformed characters. LPIPS, DISTS, and VQ-Insight favor B; human ranking and CodecArena choose A's readable text.</p>
+              </article>
+
+              <article class="subjective-case">
+                <div class="subjective-case-head">
+                  <div><span>Video · K=7</span><h4>Identity and temporal state</h4></div>
+                  <strong>Human preference · B</strong>
+                </div>
+                <div class="case-triptych" tabindex="0" aria-label="Scrollable video identity comparison">
+                  <figure><img loading="lazy" src="assets/cases/video-case-05/reference__f0.webp" alt="Reference video frame of two children in costume" /><figcaption>Reference</figcaption></figure>
+                  <figure><img loading="lazy" src="assets/cases/video-case-05/reconstruction-a__f0.webp" alt="Reconstruction A with a sharper but altered facial state" /><figcaption>A · human rank 6.8</figcaption></figure>
+                  <figure class="is-preferred"><img loading="lazy" src="assets/cases/video-case-05/reconstruction-b__f0.webp" alt="Preferred reconstruction B closer to the reference facial state" /><figcaption>B · human rank 3.1 <b>Preferred</b></figcaption></figure>
+                </div>
+                <div class="case-metrics">
+                  <table>
+                    <caption class="visually-hidden">Identity and temporal state scores for reconstructions A and B</caption>
+                    <thead><tr><th>Evaluator</th><th>A</th><th>B</th><th>Choice</th></tr></thead>
+                    <tbody>
+                      <tr><th>Human mean rank ↓</th><td>6.8</td><td>3.1</td><td><span class="decision is-aligned">B · aligned</span></td></tr>
+                      <tr class="is-codecarena"><th>CodecArena ↑</th><td>0.34</td><td>0.64</td><td><span class="decision is-aligned">B · aligned</span></td></tr>
+                      <tr><th>LPIPS ↓</th><td>0.1234</td><td>0.1392</td><td><span class="decision is-misaligned">A · not aligned</span></td></tr>
+                      <tr><th>DISTS ↓</th><td>0.1212</td><td>0.1443</td><td><span class="decision is-misaligned">A · not aligned</span></td></tr>
+                      <tr><th>VQ-Insight ↑</th><td>62</td><td>56</td><td><span class="decision is-misaligned">A · not aligned</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>A looks sharper in isolation but changes the child's facial state. LPIPS, DISTS, and VQ-Insight favor A; human ranking and CodecArena prefer B's closer source fidelity.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="resources-section page-shell" id="resources" aria-labelledby="resources-title">
+        <p class="part-label">Resources</p>
+        <h2 id="resources-title">Use CodecArena</h2>
+        <p class="section-lede">
+          Paper, implementation, and model/data resources are collected below. The model/data link currently returns
+          to the project page and can be replaced when its final destination is ready.
+        </p>
+
+        <div class="resource-grid">
+          <a href="https://arxiv.org/abs/2608.09139"><span>Paper</span><small>Method, experiments, and analysis</small><b>Open ↗</b></a>
+          <a href="https://github.com/jyfu-vcl/CodecArena_public"><span>Code</span><small>Training and evaluation toolkit</small><b>Open ↗</b></a>
+          <a href="https://jyfu-vcl.github.io/codecarena"><span>Hugging Face</span><small>Models and data collections</small><b>Open ↗</b></a>
+        </div>
+
+        <div class="citation-card">
+          <div>
+            <p class="mini-label">BibTeX</p>
+            <p>Neutral project citation placeholder</p>
+          </div>
+          <button class="copy-button" type="button" data-copy-citation>Copy</button>
+          <pre id="citation">@article{fu2026codecarena,
+  title={CodecArena: Codec Quality Assessment via Visual Reinforcement Learning},
+  author={Fu, Jiaye and Li, Weiqi and Gao, Qiankun and Zhao, Yanchen and Meng, Xiandong and Zhang, Jian and Ma, Siwei and Zhang, Jiaqi},
+  year={2026}
+}</pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell">
+        <span>CodecArena · 2026</span>
+        <a href="#overview">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script src="app.js?v=20260810-2"></script>
+  </body>
+</html>
