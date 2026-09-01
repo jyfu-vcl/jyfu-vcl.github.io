@@ -421,6 +421,7 @@ section { scroll-margin-top: 70px; }
     filter: grayscale(100%); opacity: 0.85;
     transition: filter 0.25s, opacity 0.25s, transform 0.25s;
 }
+.neural4d-logo { width: 132px; height: 36px; }
 .edu-item:hover .edu-logo { filter: grayscale(0%); opacity: 1; transform: scale(1.06); }
 /* logos are dark-ink artwork; lift them onto a chip so they stay visible on dark */
 [data-theme="dark"] .edu-logo {
